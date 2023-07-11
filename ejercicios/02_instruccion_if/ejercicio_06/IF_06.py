@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Joaquin Felipe
+apellido: Diaz
 ---
 Ejercicio: instrucion_if_06
 ---
@@ -36,9 +36,19 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
+        edad= int(self.txt_edad.get())
+        if edad >= 18: 
+         mensaje = "Es mayor"
+        elif edad <= 17 and edad >=13:
+         mensaje = "Es adolecente"
+        elif edad <=13 and edad >=10:
+         mensaje = "Es pre adolecente"
+        else:
+         mensaje="Es menor"
+
         pass
 
-        
+        alert(message= mensaje)
         
     
 if __name__ == "__main__":
