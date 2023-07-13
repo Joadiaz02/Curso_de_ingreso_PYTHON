@@ -36,11 +36,90 @@ class App(customtkinter.CTk):
         self.btn_calcular = customtkinter.CTkButton(master=self, text="Calcular", command=self.btn_calcular_on_click)
         self.btn_calcular.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
-
+    #A
     def btn_calcular_on_click(self):
+        precio = 800
+        cantidad = int(self.combobox_cantidad.get())
+        marca = self.combobox_marca.get()
+
+        if cantidad >= 6:
+            precio_cantidad = precio * cantidad
+            descuento = precio_cantidad * 50 / 100
+            precio_final = precio_cantidad - descuento
+            mensaje = precio_final 
+            if precio_final > 4000:
+                descuento_extra = precio_final * 5 / 100
+                precio_final_definitivo = precio_final - descuento_extra
+                mensaje = precio_final_definitivo
+        elif cantidad == 5 and marca == "ArgentinaLuz":
+            precio_cantidad = precio * cantidad
+            descuento = precio_cantidad * 40 / 100
+            precio_final = precio_cantidad - descuento
+            mensaje = precio_final 
+            if precio_final > 4000:
+                descuento_extra = precio_final * 5 / 100
+                precio_final_definitivo = precio_final - descuento_extra
+                mensaje = precio_final_definitivo
+        elif cantidad == 5 and marca != "ArgentinaLuz":
+            precio_cantidad = precio * cantidad
+            descuento = precio_cantidad * 30 / 100
+            precio_final = precio_cantidad - descuento
+            mensaje = precio_final  
+            if precio_final > 4000:
+                descuento_extra = precio_final * 5 / 100
+                precio_final_definitivo = precio_final - descuento_extra
+                mensaje = precio_final_definitivo
+        elif cantidad == 4 and (marca == "ArgentinaLuz" or marca == "FelipeLamparas"):
+            precio_cantidad = precio * cantidad
+            descuento = precio_cantidad * 25 / 100
+            precio_final = precio_cantidad - descuento
+            mensaje = precio_final
+            if precio_final > 4000:
+                descuento_extra = precio_final * 5 / 100
+                precio_final_definitivo = precio_final - descuento_extra
+                mensaje = precio_final_definitivo
+        elif cantidad == 4 and marca != "ArgentinaLuz" and marca != "FelipeLamparas":
+            precio_cantidad = precio * cantidad
+            descuento = precio_cantidad * 20 / 100
+            precio_final = precio_cantidad - descuento
+            mensaje = precio_final
+            if precio_final > 4000:
+                descuento_extra = precio_final * 5 / 100
+                precio_final_definitivo = precio_final - descuento_extra
+                mensaje = precio_final_definitivo
+        elif cantidad == 3 and   marca == "ArgentinaLuz":
+            precio_cantidad = precio * cantidad
+            descuento = precio_cantidad * 15 / 100
+            precio_final = precio_cantidad - descuento
+            mensaje = precio_final
+            if precio_final > 4000:
+                descuento_extra = precio_final * 5 / 100
+                precio_final_definitivo = precio_final - descuento_extra
+                mensaje = precio_final_definitivo
+        elif cantidad == 3 and   marca == "FelipeLamparas":
+            precio_cantidad = precio * cantidad
+            descuento = precio_cantidad * 10 / 100
+            precio_final = precio_cantidad - descuento
+            mensaje = precio_final
+            if precio_final > 4000:
+                descuento_extra = precio_final * 5 / 100
+                precio_final_definitivo = precio_final - descuento_extra
+                mensaje = precio_final_definitivo
+        elif cantidad == 3 and   marca != "ArgentinaLuz" and marca != "FelipeLamparas":
+            precio_cantidad = precio * cantidad
+            descuento = precio_cantidad * 5 / 100
+            precio_final = precio_cantidad - descuento
+            mensaje = precio_final 
+            if precio_final > 4000:
+                descuento_extra = precio_final * 5 / 100
+                precio_final_definitivo = precio_final - descuento_extra
+                mensaje = precio_final_definitivo       
         pass
-        
-    
+            
+        alert(title = "mensaje", message = mensaje)
+
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
